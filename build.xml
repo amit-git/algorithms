@@ -1,0 +1,49 @@
+<project name="MyProject" default="compile" basedir=".">
+    <description>
+        simple example build file
+    </description>
+    <!-- set global properties for this build -->
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp/>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="compile" depends="init"
+        description="compile the source " >
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac srcdir="${src}" destdir="${build}">
+        </javac>
+    </target>
+
+    <target name="clean"
+        description="clean up" >
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+    </target>
+
+
+    <target name="mergeSort" depends="compile"
+        description="merge sort" >
+        <java classname="org.skyblue.algorithms.mergeSort">
+            <classpath>
+                <pathelement location="${build}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="binarySearch" depends="compile"
+        description="binary search" >
+        <java classname="org.skyblue.algorithms.binarySearch">
+            <classpath>
+                <pathelement location="${build}"/>
+            </classpath>
+            <arg value="${num}"/>
+        </java>
+    </target>
+
+</project>
