@@ -1,10 +1,9 @@
 package org.skyblue.algorithms;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-public class mergeSort<T extends Comparable> {
+public class mergeSort<T extends Comparable<T>> {
 
     public List<T> sort(List<T> input, int begin, int end) {
         if (end == begin) {
@@ -15,21 +14,20 @@ public class mergeSort<T extends Comparable> {
 
         final int middle = (begin + end) / 2;
         List<T> firstHalf = sort(input, begin, middle);
-        List<T> secondHalf  = sort(input, middle + 1, end);
+        List<T> secondHalf = sort(input, middle + 1, end);
         return mergeLists(firstHalf, secondHalf);
     }
-    
+
     public List<T> mergeLists(List<T> listA, List<T> listB) {
         final int aLen = listA.size();
         final int bLen = listB.size();
-        final int rLen = aLen + bLen;
         final List<T> rlist = new ArrayList<T>();
-        int i=0;
-        int j=0;
-        while(i < aLen && j < bLen) {
+        int i = 0;
+        int j = 0;
+        while (i < aLen && j < bLen) {
             if (listA.get(i).compareTo(listB.get(j)) < 0) {
                 rlist.add(listA.get(i++));
-            } else{
+            } else {
                 rlist.add(listB.get(j++));
             }
         }
@@ -43,8 +41,7 @@ public class mergeSort<T extends Comparable> {
         return rlist;
     }
 
-    public static void main (String [] args)
-    {
+    public static void main(String[] args) {
         List<Integer> listA = new ArrayList<Integer>();
         listA.add(3);
         listA.add(4);
@@ -74,7 +71,6 @@ public class mergeSort<T extends Comparable> {
 
         List<Integer> result = msort.sort(listC, 0, listC.size() - 1);
         System.out.println("Sort Result - " + result);
-
 
         List<String> listD = new ArrayList<String>();
         listD.add("vyom");
