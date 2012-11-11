@@ -46,4 +46,14 @@
         </java>
     </target>
 
+    <target name="matrix" depends="compile"
+        description="binary search" >
+        <java classname="org.skyblue.algorithms.Matrix">
+            <classpath>
+                <pathelement location="${build}"/>
+            </classpath>
+            <arg value="${num}"/>
+        </java>
+    </target>
+
 </project>
