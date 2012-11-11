@@ -2,7 +2,7 @@ package org.skyblue.algorithms;
 
 public class FindUnique {
 
-	public static int unique(int [] input) {
+	public int unique(int [] input) {
 		int i = 0;
         int j = 0;
 
@@ -21,11 +21,4 @@ public class FindUnique {
         }
         return i;
 	}
-	
-    public static void main (String [] args)
-    {
-        int [] input = { 1,1,1,1,2,2,3,3,3,3,4,4,4,5,5 };
-        unique(input);
-    }
-    
 }
