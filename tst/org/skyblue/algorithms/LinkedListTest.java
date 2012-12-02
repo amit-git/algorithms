@@ -43,6 +43,24 @@ public class LinkedListTest {
         System.out.println(names);
     }
 
+    @Test
+    public void trySort() {
+        LinkedList<String> names = buildLinkedList();
+        assertTrue(names.size() == 8);
+        names.sort();
+        assertTrue(names.get(0) != null);
+        assertTrue(names.get(0).equals("ashwin"));
+    }
+
+    @Test
+    public void shuffle() {
+        LinkedList<String> names = buildLinkedList();
+        assertTrue(names.size() == 8);
+        names.shuffle();
+        System.out.println("Shuffle output");
+        System.out.println(names);
+    }
+
     private LinkedList<String> buildLinkedList() {
         LinkedList<String> names = new LinkedList<String>();
         names.insert("gambhir");
